@@ -40,6 +40,40 @@ sw# reload
 Now, `show boot` lists the image in the boot path.
 Power cycle confirms [SOLVED]
 
+# Overwrite passwords
+https://www.cisco.com/c/en/us/support/docs/switches/catalyst-2950-series-switches/12040-pswdrec-2900xl.html
+
+Overwrite the current passwords that you do not know. Choose a strong password with at least one capital letter, one number, and one special character.
+Note: Overwrite the passwords which are necessary. You need not overwrite all of the mentioned passwords.
+
+```
+Sw1#configure terminal
+
+!--- To overwrite existing secret password
+Sw1(config)#enable secret <new_secret_password>
+
+!--- To overwrite existing enable password
+Sw1(config)#enable password <new_enable_password>
+
+!--- To overwrite existing vty password
+Sw1(config)#line vty 0 15
+Sw1(config-line)#password <new_vty_password>
+Sw1(config-line)#login
+
+!--- To overwrite existing console password
+Sw1(config-line)#line con 0
+Sw1(config-line)#password <new_console_password>
+```
+Write the running configuration to the configuration file with the write memory command.
+
+```
+Sw1#write memory
+    Building configuration...
+    [OK]
+    Sw1#
+```
+
+
 # Configuring Switch
 ? hostname
 ?password-encryption
