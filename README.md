@@ -41,4 +41,16 @@ Now, `show boot` lists the image in the boot path.
 Power cycle confirms [SOLVED]
 
 # Configuring Switch
-
+? hostname
+?password-encryption
+? secret
+? password
+?local users
+?domain name
+? spanning tree
+?vlan
+?http server
+?line console password (login)
+?line vty password (local login)
+?ssh (there is no ssh on this switch)
+? dhcp
