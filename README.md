@@ -1,7 +1,7 @@
 # lab-catalyst-2950
 Notes on configuring a catalyst 2950 for the home lab.
 
-# Trouble booting up
+# [SOLVED] Trouble booting up
 This particular switch gets stuck booting up. The status light flashes orange, but never turns green. The console never shows any output.
 If I interupt the boot process by holding down the mode button, then the prompt loads. From the rescue prompt I am able to load the ios by:
 
@@ -27,9 +27,18 @@ I notice that the BOOT path-list is empty.
 ```
 sw#dir
 ```
-shows me the bin fileNow I set the BOOT path variable with,
+shows me the bin file Now I set the BOOT path variable with,
 ```
 sw# boot system flash:<name-of-image>.bin
 sw# reload
 ```
+Oops, that didn't work. I needed to direct the path to flash:/
+```
+sw# boot system flash:/<name-of-image>.bin
+sw# reload
+```
 Now, `show boot` lists the image in the boot path.
+Power cycle confirms [SOLVED]
+
+# Configuring Switch
+
