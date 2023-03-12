@@ -10,6 +10,26 @@ flash_init
 load_helper
 boot
 ```
-
-
-
+From the IOS
+```
+sw#show boot
+BOOT path-lists:
+Config file:          flash:/config.text
+Private Config file:  flash:/private-config.text
+Enable Break:         no
+Manual Boot:          no
+HELPER path-lists:
+NVRAM/Cofig file 
+      buffer size:    32768
+      
+```
+I notice that the BOOT path-list is empty.
+```
+sw#dir
+```
+shows me the bin fileNow I set the BOOT path variable with,
+```
+sw# boot system flash:<name-of-image>.bin
+sw# reload
+```
+Now, `show boot` lists the image in the boot path.
